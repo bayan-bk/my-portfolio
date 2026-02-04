@@ -1,3 +1,461 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ==========================================
+   BLACK & GOLD THEME VARIABLES
+   ========================================== */
+:root {
+    --color-bg-primary: #0A0A0A;
+    --color-bg-secondary: #111111;
+    --color-bg-card: #161616;
+    --color-border: #2A2A2A;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #C9B037;
+    --color-text-muted: #888888;
+    --color-gold: #C9B037;
+    --color-gold-light: #E5D68A;
+    --color-gold-dark: #9A8420;
+    --color-glow: rgba(201, 176, 55, 0.15);
+}
+
+/* ==========================================
+   BASE STYLES
+   ========================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+::selection {
+    background: rgba(201, 176, 55, 0.3);
+    color: #fff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gold-dark);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
+}
+
+/* ==========================================
+   GLASS & CARD EFFECTS
+   ========================================== */
+.glass-card {
+    background: rgba(22, 22, 22, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+}
+
+.glass-nav {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(201, 176, 55, 0.1);
+    border-color: var(--color-gold-dark);
+}
+
+/* ==========================================
+   NOISE TEXTURE OVERLAY
+   ========================================== */
+.noise-overlay::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================
+   GOLD GLOW EFFECTS
+   ========================================== */
+.glow-gold-sm {
+    box-shadow: 0 0 20px rgba(201, 176, 55, 0.1);
+}
+
+.glow-gold-md {
+    box-shadow: 0 0 40px rgba(201, 176, 55, 0.15);
+}
+
+.glow-gold-lg {
+    box-shadow: 0 0 80px rgba(201, 176, 55, 0.2);
+}
+
+.text-glow-gold {
+    text-shadow: 0 0 30px rgba(201, 176, 55, 0.3);
+}
+
+/* ==========================================
+   GRADIENT EFFECTS
+   ========================================== */
+.gradient-gold {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+}
+
+.gradient-text-gold {
+    background: linear-gradient(135deg, #C9B037 0%, #E5D68A 50%, #C9B037 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-border-gold {
+    position: relative;
+}
+
+.gradient-border-gold::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--color-gold-dark), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ==========================================
+   BUTTON STYLES
+   ========================================== */
+.btn-gold {
+    background: linear-gradient(135deg, #C9B037 0%, #9A8420 100%);
+    color: #0A0A0A;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background: linear-gradient(135deg, #E5D68A 0%, #C9B037 100%);
+    box-shadow: 0 10px 30px rgba(201, 176, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold-dark);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+    background: rgba(201, 176, 55, 0.1);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 20px rgba(201, 176, 55, 0.2);
+}
+
+/* Magnetic Button Effect */
+.magnetic-btn {
+    transition: transform 0.2s ease-out;
+}
+
+/* Ripple Effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(201, 176, 55, 0.3) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.3s;
+}
+
+.ripple:active::after {
+    transform: scale(0);
+    opacity: 1;
+    transition: 0s;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+@keyframes pulse-gold {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        box-shadow: 0 0 20px rgba(201, 176, 55, 0.2);
+    }
+
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 40px rgba(201, 176, 55, 0.4);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.animate-pulse-gold {
+    animation: pulse-gold 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(201, 176, 55, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* ==========================================
+   REVEAL ANIMATIONS (GSAP controlled)
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.will-change-transform {
+    will-change: transform, opacity;
+}
+
+/* ==========================================
+   SKILL BAR ANIMATIONS
+   ========================================== */
+.skill-bar {
+    background: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-gold-dark) 0%, var(--color-gold) 100%);
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+/* ==========================================
+   TIMELINE STYLES
+   ========================================== */
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-border) 100%);
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--color-bg-primary);
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    position: relative;
+}
+
+.timeline-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    opacity: 0;
+    animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* ==========================================
+   3D TILT CARD
+   ========================================== */
+.tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.tilt-content {
+    transform: translateZ(30px);
+}
+
+/* ==========================================
+   GOLD ACCENT UTILITIES
+   ========================================== */
+.border-gold {
+    border-color: var(--color-gold-dark);
+}
+
+.border-gold-hover:hover {
+    border-color: var(--color-gold);
+}
+
+.text-gold {
+    color: var(--color-gold);
+}
+
+.text-gold-light {
+    color: var(--color-gold-light);
+}
+
+.bg-gold {
+    background-color: var(--color-gold);
+}
+
+.bg-gold-dark {
+    background-color: var(--color-gold-dark);
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ==========================================
+   UTILITIES
+   ========================================== */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .animation-delay-100 {
+        animation-delay: 100ms;
+    }
+
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animation-delay-300 {
+        animation-delay: 300ms;
+    }
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
+
+    .animation-delay-500 {
+        animation-delay: 500ms;
+    }
+}
