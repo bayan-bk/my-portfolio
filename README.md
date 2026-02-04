@@ -1,66 +1,257 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Bayan K - Flutter Developer Portfolio
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A beautiful, fully static portfolio website built with Laravel & Tailwind CSS. **No database required!**
 
-## About Laravel
+## 🎨 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Black & Gold Theme** - Premium, modern aesthetic
+- **Fully Static** - All data stored in config files (no database needed)
+- **Super Responsive** - Works perfectly on mobile, tablet, and desktop
+- **SMTP Contact Form** - Sends emails directly to your inbox
+- **GSAP Animations** - Smooth scroll-triggered animations
+- **SEO Optimized** - Meta tags, semantic HTML, and fast loading
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Quick Start
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Clone & Install
+```bash
+git clone https://github.com/bayan-k/portfolio.git
+cd portfolio
+composer install
+npm install
+```
 
-## Learning Laravel
+### 2. Configure Environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3. Build Assets
+```bash
+npm run build
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 4. Run Locally
+```bash
+php artisan serve
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Visit `http://127.0.0.1:8000`
 
-## Laravel Sponsors
+## 📝 How to Edit Your Data
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+All your portfolio data is stored in a single file: **`config/portfolio.php`**
 
-### Premium Partners
+### Profile Information
+```php
+'profile' => [
+    'name' => 'Your Name',
+    'role' => 'Your Title',
+    'email' => 'your@email.com',
+    'phone' => '+1234567890',
+    'location' => 'Your City, Country',
+    'experience_years' => '5',
+    'about' => 'Your bio here...',
+    'avatar' => 'https://your-image-url.com/avatar.jpg',
+    'resume_url' => 'https://your-resume-link.com',
+    'social' => [
+        'github' => 'https://github.com/yourusername',
+        'linkedin' => 'https://linkedin.com/in/yourusername',
+        'twitter' => 'https://twitter.com/yourusername',
+    ],
+],
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Add a New Project
+```php
+'projects' => [
+    [
+        'slug' => 'my-project',  // URL-friendly name
+        'title' => 'My Awesome Project',
+        'brief_description' => 'Short description for cards',
+        'full_description' => 'Detailed description with bullet points...',
+        'technologies' => ['Flutter', 'Firebase', 'REST API'],
+        'image' => 'https://your-project-image.com/image.jpg',
+        'live_url' => 'https://live-demo.com',
+        'github_url' => 'https://github.com/you/project',
+        'featured' => true,  // Show on homepage
+    ],
+    // Add more projects...
+],
+```
 
-## Contributing
+### Add Work Experience
+```php
+'experiences' => [
+    [
+        'company' => 'Company Name',
+        'role' => 'Your Position',
+        'start_date' => 'Jan 2024',
+        'end_date' => 'Present',  // or 'Dec 2024'
+        'description' => '• Achievement 1\n• Achievement 2\n• Achievement 3',
+    ],
+    // Add more experiences...
+],
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Add Education
+```php
+'education' => [
+    [
+        'institution' => 'University Name',
+        'degree' => 'Bachelor of Technology',
+        'start_year' => '2019',
+        'end_year' => '2023',
+        'description' => 'Optional description...',
+    ],
+],
+```
 
-## Code of Conduct
+### Add Certifications
+```php
+'certificates' => [
+    [
+        'name' => 'Certificate Name',
+        'issuer' => 'Issuing Organization',
+        'date' => 'Mar 2024',
+        'url' => 'https://certificate-link.com',
+    ],
+],
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Add Services
+```php
+'services' => [
+    [
+        'title' => 'Service Title',
+        'description' => 'What you offer...',
+        'icon' => 'mobile',  // Currently not used, but reserved
+    ],
+],
+```
 
-## Security Vulnerabilities
+### Add Testimonials
+```php
+'testimonials' => [
+    [
+        'name' => 'Client Name',
+        'role' => 'Their Position',
+        'company' => 'Their Company',
+        'content' => 'What they said about you...',
+        'avatar' => 'https://client-avatar.com/image.jpg',
+    ],
+],
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Update SEO Settings
+```php
+'seo' => [
+    'title' => 'Your Name - Your Title',
+    'description' => 'Your meta description for search engines...',
+    'keywords' => 'keyword1, keyword2, keyword3',
+    'author' => 'Your Name',
+],
+```
 
-## License
+## 📧 Setting Up SMTP (Contact Form)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Edit your `.env` file to configure email:
+
+### For Gmail:
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="your-email@gmail.com"
+MAIL_FROM_NAME="Your Portfolio"
+```
+
+**Important:** For Gmail, you need to:
+1. Enable 2-Factor Authentication
+2. Generate an App Password at https://myaccount.google.com/apppasswords
+3. Use the App Password (not your regular password)
+
+### For Other Providers:
+- **Outlook/Hotmail**: `smtp-mail.outlook.com`, Port 587
+- **Yahoo**: `smtp.mail.yahoo.com`, Port 465 (SSL)
+- **Your domain**: Check with your hosting provider
+
+## 🌐 Deployment
+
+### Option 1: Shared Hosting (cPanel)
+1. Upload all files to `public_html`
+2. Move `public/` contents to root
+3. Update `index.php` paths
+4. Configure `.env` for production
+
+### Option 2: VPS (DigitalOcean, AWS, etc.)
+```bash
+# On your server
+git clone your-repo
+composer install --optimize-autoloader --no-dev
+npm install && npm run build
+php artisan config:cache
+```
+
+### Option 3: Platform Hosting
+- **Vercel**: Not recommended (PHP)
+- **Railway**: ✅ Supports Laravel
+- **Render**: ✅ Supports Laravel
+- **Fly.io**: ✅ Supports Laravel
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── config/
+│   └── portfolio.php      # ⭐ ALL YOUR DATA HERE
+├── resources/
+│   ├── views/
+│   │   ├── home.blade.php
+│   │   ├── about.blade.php
+│   │   ├── contact.blade.php
+│   │   └── projects/
+│   └── css/
+│       └── app.css        # Theme & animations
+├── app/Http/Controllers/
+│   ├── HomeController.php
+│   ├── ProjectShowcaseController.php
+│   └── ContactController.php
+└── .env                   # SMTP & app config
+```
+
+## 🎨 Customizing Colors
+
+Edit `resources/css/app.css`:
+
+```css
+:root {
+    --color-bg-primary: #0A0A0A;      /* Main background */
+    --color-bg-secondary: #111111;     /* Cards background */
+    --color-border: #2A2A2A;           /* Border color */
+    --color-gold: #C9B037;             /* Accent color */
+    --color-gold-light: #E5D68A;       /* Light accent */
+    --color-gold-dark: #9A8420;        /* Dark accent */
+}
+```
+
+After changes, run:
+```bash
+npm run build
+```
+
+## 📞 Support
+
+Need help? Open an issue on GitHub or contact me at bayanbinaboobacker@gmail.com
+
+## 📄 License
+
+MIT License - feel free to use this for your own portfolio!
+
+---
+
+Made with ❤️ by Bayan K

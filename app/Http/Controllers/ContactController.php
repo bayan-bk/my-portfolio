@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\Message;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ContactController extends Controller
 {
     public function index(): View
     {
-        $profile = \App\Models\Profile::first();
+        $profile = (object) config('portfolio.profile');
         return view('contact', compact('profile'));
     }
 
@@ -24,8 +23,28 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        Message::create($validated);
+        // Send email via SMTP
+        $toEmail = config('portfolio.profile.email');
+        $subject = $validated['subject'] ?? 'New Contact Form Message';
 
-        return back()->with('success', 'Message sent successfully!');
+        try {
+            Mail::send([], [], function ($message) use ($validated, $toEmail, $subject) {
+                $message->to($toEmail)
+                    ->replyTo($validated['email'], $validated['name'])
+                    ->subject($subject)
+                    ->html("
+                        <h2>New Contact Form Submission</h2>
+                        <p><strong>Name:</strong> {$validated['name']}</p>
+                        <p><strong>Email:</strong> {$validated['email']}</p>
+                        <p><strong>Subject:</strong> {$subject}</p>
+                        <p><strong>Message:</strong></p>
+                        <p>" . nl2br(e($validated['message'])) . "</p>
+                    ");
+            });
+
+            return back()->with('success', 'Message sent successfully! I\'ll get back to you soon.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Sorry, there was an issue sending your message. Please try again or email me directly.');
+        }
     }
 }

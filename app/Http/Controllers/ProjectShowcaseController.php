@@ -3,20 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\Project;
 use Illuminate\View\View;
 
 class ProjectShowcaseController extends Controller
 {
     public function index(): View
     {
-        $projects = Project::orderBy('sort_order')->get();
+        $projects = collect(config('portfolio.projects'))->map(fn($p) => (object) $p);
         return view('projects.index', compact('projects'));
     }
 
-    public function show(Project $project): View
+    public function show(string $slug): View
     {
+        $projectData = collect(config('portfolio.projects'))->firstWhere('slug', $slug);
+
+        if (!$projectData) {
+            abort(404);
+        }
+
+        $project = (object) $projectData;
         return view('projects.show', compact('project'));
     }
 }
