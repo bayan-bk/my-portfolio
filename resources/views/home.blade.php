@@ -1,4 +1,4 @@
-@extends('layouts.web')
+﻿@extends('layouts.web')
 
 @section('title', ($profile->name ?? 'Bayan K') . ' - Flutter Developer Portfolio')
 
@@ -95,28 +95,28 @@
 
                     <!-- Stats -->
                     <div
-                        class="reveal flex items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 pt-6 sm:pt-8 border-t border-[#2A2A2A]">
+                        class="reveal flex items-center justify-center lg:justify-start gap-3 sm:gap-6 md:gap-8 flex-wrap pt-6 sm:pt-8 border-t border-[#2A2A2A]">
                         <div class="text-center">
-                            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-[#C9B037]">50+</div>
-                            <div class="text-xs sm:text-sm text-[#888888]">Projects</div>
+                            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-[#C9B037]">6+</div>
+                            <div class="text-xs sm:text-sm text-[#888888]">Apps Shipped</div>
                         </div>
                         <div class="w-px h-8 sm:h-12 bg-[#2A2A2A]"></div>
                         <div class="text-center">
                             <div class="text-xl sm:text-2xl md:text-3xl font-bold text-[#C9B037]">
-                                {{ $profile->experience_years ?? '5' }}+</div>
+                                {{ $profile->experience_years ?? '2' }}+</div>
                             <div class="text-xs sm:text-sm text-[#888888]">Years Exp.</div>
                         </div>
                         <div class="w-px h-8 sm:h-12 bg-[#2A2A2A]"></div>
                         <div class="text-center">
-                            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-[#C9B037]">30+</div>
-                            <div class="text-xs sm:text-sm text-[#888888]">Clients</div>
+                            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-[#C9B037]">3+</div>
+                            <div class="text-xs sm:text-sm text-[#888888]">Prod Releases</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hero Image -->
                 <div class="w-full lg:w-1/2 relative reveal-right mt-8 lg:mt-0">
-                    <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto aspect-square">
+                    <div class="relative w-full max-w-[220px] sm:max-w-sm md:max-w-md mx-auto aspect-square">
                         <!-- Glow Behind Image -->
                         <div
                             class="absolute inset-0 bg-gradient-to-tr from-[#C9B037]/20 to-[#9A8420]/10 rounded-[2rem] sm:rounded-[3rem] blur-xl sm:blur-2xl animate-pulse-gold">

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 return [
     /*
@@ -12,8 +12,8 @@ return [
         'location' => 'Othayi, Malappuram, Kerala, India',
         'email' => 'bayanbinaboobacker@gmail.com',
         'phone' => '+91-9567348351',
-        'experience_years' => '1.5',
-        'about' => 'Flutter Developer with 1.5+ years of experience building production-grade mobile applications. Strong in clean architecture, offline-first systems, and performance optimization. Experienced in owning features end-to-end, debugging production issues, and delivering scalable Flutter solutions.',
+        'experience_years' => '2',
+        'about' => 'Flutter Developer with 2+ years of experience independently delivering enterprise Flutter apps across HRMS, B2B field sales, service management, and food delivery. Strong in Clean Architecture, offline-first systems, geofencing security, and Play Store / App Store release management.',
         'avatar' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face',
         'resume_url' => null, // Add your resume URL here
         'social' => [
@@ -155,7 +155,7 @@ return [
     */
     'education' => [
         [
-            'institution' => 'College of Engineering Sreekaryam',
+            'institution' => 'College of Engineering Trivandrum (CET)',
             'degree' => 'Bachelor of Technology in Computer Science',
             'start_year' => '2019',
             'end_year' => '2023',
@@ -263,7 +263,7 @@ return [
     */
     'seo' => [
         'title' => 'Bayan K - Flutter Developer Portfolio',
-        'description' => 'Flutter Developer with 1.5+ years of experience building production-grade mobile applications. Specialized in clean architecture and offline-first systems.',
+        'description' => 'Flutter Developer with 2+ years of experience building production-grade enterprise mobile applications. Specialized in offline-first architecture, geofencing security, and Clean Architecture across Android and iOS.',
         'keywords' => 'Flutter Developer, Mobile App Developer, Dart, iOS, Android, Cross-platform, Kerala, India',
         'author' => 'Bayan K',
     ],

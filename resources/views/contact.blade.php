@@ -1,4 +1,4 @@
-@extends('layouts.web')
+﻿@extends('layouts.web')
 
 @section('title', 'Contact Me - ' . ($profile->name ?? 'Bayan K'))
 
@@ -41,7 +41,7 @@
                             <div>
                                 <h3 class="font-bold text-base sm:text-lg text-white mb-1">Email Me</h3>
                                 <a href="mailto:{{ $profile->email ?? 'test@example.com' }}"
-                                    class="text-[#888888] hover:text-[#C9B037] transition-colors text-sm sm:text-base break-all">{{ $profile->email ?? 'test@example.com' }}</a>
+                                    class="text-[#888888] hover:text-[#C9B037] transition-colors text-sm sm:text-base break-words">{{ $profile->email ?? 'test@example.com' }}</a>
                             </div>
                         </div>
 
