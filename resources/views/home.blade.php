@@ -152,13 +152,15 @@
                         <div
                             class="hidden sm:block absolute -left-2 md:-left-4 bottom-12 md:bottom-16 p-3 md:p-4 glass-card rounded-xl md:rounded-2xl animate-float-delayed border border-[#C9B037]/20">
                             <div class="flex items-center gap-2 md:gap-3">
-                                <div class="flex -space-x-2">
-                                    <img src="https://i.pravatar.cc/32?img=1"
-                                        class="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#161616]" alt="">
-                                    <img src="https://i.pravatar.cc/32?img=2"
-                                        class="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#161616]" alt="">
+                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#C9B037]/10 flex items-center justify-center text-[#C9B037]">
+                                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
                                 </div>
-                                <span class="text-xs md:text-sm font-medium text-white">Happy Clients</span>
+                                <div>
+                                    <p class="text-[10px] md:text-xs text-[#888888]">Specialization</p>
+                                    <p class="font-bold text-white text-xs md:text-sm">Flutter &amp; Dart</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -327,49 +329,6 @@
         </section>
     @endif
 
-    <!-- Testimonials Section -->
-    @if (count($testimonials) > 0)
-        <section class="py-16 sm:py-24 lg:py-32 bg-[#111111] relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-[linear-gradient(rgba(201,176,55,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(201,176,55,0.015)_1px,transparent_1px)] bg-[size:40px_40px]">
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
-                    <span
-                        class="text-[#C9B037] font-medium tracking-wider uppercase text-xs sm:text-sm">Testimonials</span>
-                    <h2 class="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white">Client
-                        Feedback</h2>
-                    <div
-                        class="w-16 sm:w-20 h-1 bg-gradient-to-r from-[#9A8420] to-[#C9B037] mx-auto rounded-full mt-4 sm:mt-6">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 stagger-grid">
-                    @foreach ($testimonials as $index => $testimonial)
-                        <div
-                            class="stagger-item bg-[#161616] p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-[#2A2A2A] relative glow-gold-sm">
-                            <div
-                                class="absolute top-4 sm:top-6 right-6 sm:right-8 text-4xl sm:text-5xl lg:text-6xl text-[#C9B037]/20 font-serif leading-none">
-                                "</div>
-                            <p class="text-[#FFFFFF] mb-6 sm:mb-8 relative z-10 leading-relaxed text-sm sm:text-base">
-                                {{ $testimonial->content }}</p>
-                            <div class="flex items-center gap-3 sm:gap-4">
-                                <img src="{{ $testimonial->avatar }}" alt="{{ $testimonial->name }}"
-                                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-[#C9B037]/30">
-                                <div>
-                                    <h4 class="font-bold text-white text-sm sm:text-base">{{ $testimonial->name }}</h4>
-                                    <p class="text-xs sm:text-sm text-[#C9B037]">
-                                        {{ $testimonial->role }}{{ $testimonial->company ? ', ' . $testimonial->company : '' }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
 
     <!-- CTA Section -->
     <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
