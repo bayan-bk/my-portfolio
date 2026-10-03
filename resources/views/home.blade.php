@@ -1,4 +1,4 @@
-﻿@extends('layouts.web')
+@extends('layouts.web')
 
 @section('title', ($profile->name ?? 'Bayan K') . ' - Flutter Developer Portfolio')
 
@@ -195,18 +195,11 @@
                             {{ $category }}
                         </h3>
 
-                        <div class="space-y-4 sm:space-y-6">
+                        <div class="space-y-2.5 sm:space-y-3">
                             @foreach ($categorySkills as $skill)
-                                <div>
-                                    <div class="flex justify-between mb-2">
-                                        <span
-                                            class="text-[#FFFFFF] font-medium text-sm sm:text-base">{{ $skill['name'] }}</span>
-                                        <span
-                                            class="text-[#C9B037] text-xs sm:text-sm font-bold">{{ $skill['proficiency'] }}%</span>
-                                    </div>
-                                    <div class="skill-bar h-1 sm:h-1.5">
-                                        <div class="skill-bar-fill" style="width: {{ $skill['proficiency'] }}%"></div>
-                                    </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-[#161616] border border-[#262626] hover:border-[#C9B037]/40 hover:bg-[#1A1A1A] hover:translate-x-1 transition-all duration-300">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#C9B037] flex-shrink-0"></span>
+                                    <span class="text-[#EAEAEA] font-medium text-sm sm:text-base">{{ $skill['name'] }}</span>
                                 </div>
                             @endforeach
                         </div>
